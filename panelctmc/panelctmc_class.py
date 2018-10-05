@@ -7,7 +7,8 @@ from ctmc import simulate
 class PanelCtmc(BaseEstimator):
     """Continous Time Markov Chain for Panel Data, sklearn API class"""
 
-    def __init__(self, mapping=None, lastdate=None, transintv=1.0, toltime=1e-8, debug=False):
+    def __init__(self, mapping=None, lastdate=None,
+                 transintv=1.0, toltime=1e-8, debug=False):
         self.mapping = mapping
         self.lastdate = lastdate
         self.transintv = transintv
@@ -20,7 +21,18 @@ class PanelCtmc(BaseEstimator):
         self.datalist = None
 
     def fit(self, X, y=None):
-        self.transmat, self.genmat, self.transcount, self.statetime, self.datalist = panelctmc(X, self.mapping, lastdate=self.lastdate, transintv=self.transintv, toltime=self.toltime, debug=self.debug)
+        (
+            self.transmat,
+            self.genmat,
+            self.transcount,
+            self.statetime,
+            self.datalist
+        ) = panelctmc(
+            X, self.mapping,
+            lastdate=self.lastdate,
+            transintv=self.transintv,
+            toltime=self.toltime,
+            debug=self.debug)
         return self
 
     def predict(self, X, steps=1):
