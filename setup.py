@@ -7,7 +7,7 @@ def read(fname):
 
 
 setup(name='panelctmc',
-      version='0.1.0',
+      version='0.1.1',
       description=(
           "Continuous Time Markov Chain for daily panel data "
           "and annual transition probabilities"),

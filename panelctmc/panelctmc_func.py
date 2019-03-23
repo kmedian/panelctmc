@@ -31,7 +31,11 @@ def panelctmc(paneldata, mapping, lastdate=None,
 
     # Compute transitition matrix
     transmat, genmat, transcount, statetime = ctmc(
-        datalist, len(mapping) + 1, 1.0, toltime=1e-8, debug=True)
+        datalist,
+        len(mapping) + 1,
+        transintv=transintv,
+        toltime=toltime,
+        debug=debug)
 
     # done
     return transmat, genmat, transcount, statetime, datalist
