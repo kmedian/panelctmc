@@ -6,8 +6,13 @@ from .panel_to_datalist import panel_to_datalist
 from ctmc import ctmc, datacorrection
 
 
-def panelctmc(paneldata, mapping, lastdate=None,
-              transintv=1.0, toltime=1e-8, debug=True):
+def panelctmc(paneldata: np.ndarray,
+              mapping: list,
+              lastdate: datetime = None,
+              transintv: float = 1.0,
+              toltime: float = 1e-8,
+              debug: bool = True) -> (np.ndarray, np.ndarray, np.ndarray,
+                                      np.ndarray, list):
     # check if numpy array
     if not isinstance(paneldata, np.ndarray):
         raise Exception("'paneldata' is not a numpy array")

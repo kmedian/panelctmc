@@ -1,9 +1,12 @@
 
 from yearfrac import yearfrac
 import numpy as np
+import datetime
 
 
-def panel_to_datalist(data, lastdate=None):
+def panel_to_datalist(data: np.ndarray,
+                      lastdate: datetime.datetime = None
+                      ) -> list:
     """Transforms array/list to ctmc's internal data format
 
     Parameters:
